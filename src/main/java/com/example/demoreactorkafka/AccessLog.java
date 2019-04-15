@@ -18,7 +18,8 @@ public class AccessLog {
     private final String userAgent;
 
     @JsonCreator
-    public AccessLog(@JsonProperty("date") String date, @JsonProperty("method") String method, @JsonProperty("path") String path, @JsonProperty("host") String host, @JsonProperty("crawler") boolean crawler,
+    public AccessLog(@JsonProperty("date") String date, @JsonProperty("method") String method, @JsonProperty("path") String path, @JsonProperty("host") String host,
+                     @JsonProperty("crawler") boolean crawler,
                      @JsonProperty("userAgent") String userAgent) {
         this.date = date;
         this.method = method;
@@ -40,6 +41,10 @@ public class AccessLog {
         return path;
     }
 
+    public String getHost() {
+        return host;
+    }
+
     public boolean isCrawler() {
         return crawler;
     }
@@ -54,6 +59,7 @@ public class AccessLog {
             "date='" + date + '\'' +
             ", method='" + method + '\'' +
             ", path='" + path + '\'' +
+            ", host='" + host + '\'' +
             ", crawler=" + crawler +
             ", userAgent='" + userAgent + '\'' +
             '}';
